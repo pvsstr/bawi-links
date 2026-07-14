@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAWI</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <style>
+@font-face{font-family:'Comba Test Bold Ultra Wide';font-style:normal;font-weight:normal;src:url('combatest-boldultrawide.woff') format('woff')}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Montserrat',sans-serif;
@@ -14,91 +14,90 @@ body{
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,rgba(180,160,200,0.5),rgba(190,170,210,0.5),rgba(200,180,220,0.5)),url("BG.jpg") center/cover fixed;
   padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:
+    radial-gradient(ellipse at 20% 50%,rgba(255,255,255,0.08) 0%,transparent 50%),
+    radial-gradient(ellipse at 80% 20%,rgba(200,180,255,0.06) 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 80%,rgba(180,200,255,0.05) 0%,transparent 50%);
+  backdrop-filter:blur(2px);
+  z-index:0;
+  animation:glassShimmer 20s ease-in-out infinite alternate;
+}
+@keyframes glassShimmer{
+  0%{transform:translate(0,0) rotate(0deg)}
+  100%{transform:translate(2%,-2%) rotate(1deg)}
 }
 .card{
+  position:relative;z-index:1;
   width:100%;max-width:400px;
-  background:rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.15);
   backdrop-filter:blur(60px) saturate(200%);
   -webkit-backdrop-filter:blur(60px) saturate(200%);
-  border:1px solid rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.3);
   border-radius:28px;
-  padding:44px 32px 36px;
+  padding:48px 32px 36px;
   text-align:center;
-  box-shadow:0 12px 48px rgba(91,127,255,0.12),0 2px 8px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.45);
+  box-shadow:0 16px 64px rgba(91,127,255,0.1),0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.4);
 }
 .logo-wrap{
-  margin:0 auto 28px;
-  width:110px;height:110px;
+  margin:0 auto 32px;
+  width:160px;height:160px;
   display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(30px);
   border-radius:50%;
-  border:1px solid rgba(255,255,255,0.3);
-  box-shadow:0 8px 32px rgba(91,127,255,0.1),inset 0 1px 0 rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.35);
+  box-shadow:0 12px 40px rgba(91,127,255,0.12),0 4px 16px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.5);
 }
 .logo-wrap img{
   max-width:70%;max-height:70%;
-  filter:drop-shadow(0 2px 8px rgba(91,127,255,0.15));
+  filter:drop-shadow(0 4px 12px rgba(91,127,255,0.15));
 }
-.links{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.links{display:flex;flex-direction:column;gap:14px}
 .link-btn{
   display:flex;align-items:center;gap:16px;
   padding:16px 22px;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.18);
   backdrop-filter:blur(40px) saturate(180%);
   -webkit-backdrop-filter:blur(40px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.3);
   border-radius:16px;
   text-decoration:none;
-  color:rgba(26,26,46,0.85);
+  color:rgba(26,26,46,0.8);
   font-weight:500;font-size:15px;
   transition:all 0.3s ease;
-  box-shadow:0 4px 16px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.4);
+  box-shadow:0 4px 16px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.35);
 }
 .link-btn:hover{
-  background:rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.32);
   transform:translateY(-3px);
-  box-shadow:0 8px 28px rgba(91,127,255,0.12),inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow:0 8px 28px rgba(91,127,255,0.1),inset 0 1px 0 rgba(255,255,255,0.45);
 }
 .link-btn .icon{
   width:44px;height:44px;
   border-radius:13px;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
-.link-btn .icon.tg{
-  background:linear-gradient(135deg,#54A9EB,#3B8ED0);
-}
-.link-btn .icon.ig{
-  background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF,#515BD4);
-}
+.link-btn .icon.tg{background:linear-gradient(135deg,#54A9EB,#3B8ED0)}
+.link-btn .icon.ig{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF,#515BD4)}
 .link-btn .text{flex:1;text-align:left}
-.link-btn .arrow{
-  opacity:0.3;
-  font-size:18px;
-  color:#3D5AFE;
-  transition:opacity 0.3s;
-}
+.link-btn .arrow{opacity:0.3;font-size:18px;color:#3D5AFE;transition:opacity 0.3s}
 .link-btn:hover .arrow{opacity:0.7}
-.qr-section{
-  padding-top:24px;
-  border-top:1px solid rgba(255,255,255,0.2);
-}
-#qr-canvas{
-  border-radius:14px;
-  background:rgba(255,255,255,0.6);
-  backdrop-filter:blur(20px);
-  padding:10px;
-  display:inline-block;
-  box-shadow:0 4px 20px rgba(91,127,255,0.08),inset 0 1px 0 rgba(255,255,255,0.4);
-  border:1px solid rgba(255,255,255,0.3);
-}
-.footer{
-  margin-top:20px;
-  font-size:11px;
-  color:rgba(61,90,254,0.3);
-  letter-spacing:1px;
+.brand{
+  margin-top:32px;
+  font-family:'Comba Test Bold Ultra Wide',sans-serif;
+  font-size:20px;
+  letter-spacing:3px;
+  color:rgba(61,90,254,0.25);
 }
 </style>
 </head>
@@ -125,22 +124,7 @@ body{
     </a>
   </div>
 
-  <div class="qr-section">
-    <div id="qr-canvas"></div>
-  </div>
-
-  <div class="footer">BAWI</div>
+  <div class="brand">BAWI</div>
 </div>
-
-<script>
-QRCode.toCanvas(document.createElement('canvas'),'https://pvsstr.github.io/bawi-links/',{
-  width:130,
-  margin:1,
-  color:{dark:'rgba(26,26,46,0.75)',light:'#ffffff'}
-},function(error,canvas){
-  if(error)return console.error(error);
-  document.getElementById('qr-canvas').appendChild(canvas);
-});
-</script>
 </body>
 </html>
