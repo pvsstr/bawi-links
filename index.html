@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAWI — Украшения ручной работы</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -12,54 +12,54 @@ body{
   font-family:'Montserrat',sans-serif;
   min-height:100vh;
   display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  background:linear-gradient(135deg,rgba(200,162,200,0.7),rgba(221,160,221,0.7),rgba(216,191,216,0.7)),url("BG.jpg") center/cover fixed;
   padding:20px;
 }
 .card{
   width:100%;max-width:420px;
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
-  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(60px) saturate(200%);
+  -webkit-backdrop-filter:blur(60px) saturate(200%);
+  border:1px solid rgba(255,255,255,0.5);
   border-radius:24px;
   padding:40px 32px;
   text-align:center;
-  box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow:0 8px 32px rgba(91,127,255,0.1),inset 0 1px 0 rgba(255,255,255,0.6);
 }
-.avatar{
-  width:90px;height:90px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  border:3px solid rgba(255,255,255,0.4);
-  margin:0 auto 16px;
+.logo-wrap{
+  margin:0 auto 20px;
+  width:120px;height:120px;
   display:flex;align-items:center;justify-content:center;
-  font-size:40px;
 }
-.name{
-  font-size:24px;font-weight:700;
-  color:#fff;margin-bottom:4px;
-  text-shadow:0 2px 8px rgba(0,0,0,0.2);
+.logo-wrap img{
+  max-width:100%;max-height:100%;
+  filter:drop-shadow(0 4px 12px rgba(91,127,255,0.2));
 }
 .subtitle{
-  font-size:14px;
-  color:rgba(255,255,255,0.75);
+  font-family:'Caveat',cursive;
+  font-size:22px;
+  font-weight:600;
+  color:#3D5AFE;
   margin-bottom:28px;
+  text-shadow:0 1px 4px rgba(91,127,255,0.1);
 }
 .links{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
 .link-btn{
   display:flex;align-items:center;gap:14px;
   padding:14px 20px;
-  background:rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.35);
   backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.45);
   border-radius:14px;
   text-decoration:none;
-  color:#fff;font-weight:500;font-size:15px;
+  color:#1A1A2E;font-weight:500;font-size:15px;
   transition:all 0.3s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
 }
 .link-btn:hover{
-  background:rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.55);
   transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  box-shadow:0 6px 20px rgba(91,127,255,0.15),inset 0 1px 0 rgba(255,255,255,0.5);
 }
 .link-btn .icon{
   width:40px;height:40px;
@@ -70,36 +70,37 @@ body{
 .link-btn .icon.tg{background:linear-gradient(135deg,#0088cc,#005fa3)}
 .link-btn .icon.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
 .link-btn .text{flex:1;text-align:left}
-.link-btn .arrow{opacity:0.5;font-size:18px}
+.link-btn .arrow{opacity:0.4;font-size:18px;color:#3D5AFE}
 .qr-section{
   padding-top:20px;
-  border-top:1px solid rgba(255,255,255,0.15);
+  border-top:1px solid rgba(255,255,255,0.3);
 }
 .qr-label{
-  font-size:12px;
-  color:rgba(255,255,255,0.6);
+  font-family:'Caveat',cursive;
+  font-size:16px;
+  color:#3D5AFE;
   margin-bottom:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
+  font-weight:600;
 }
 #qr-canvas{
   border-radius:12px;
   background:#fff;
   padding:8px;
   display:inline-block;
-  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+  box-shadow:0 4px 16px rgba(91,127,255,0.1);
 }
 .footer{
   margin-top:20px;
   font-size:11px;
-  color:rgba(255,255,255,0.4);
+  color:rgba(61,90,254,0.4);
 }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="avatar">💎</div>
-  <div class="name">BAWI</div>
+  <div class="logo-wrap">
+    <img src="Bawi.png" alt="BAWI">
+  </div>
   <div class="subtitle">Украшения ручной работы</div>
 
   <div class="links">
@@ -128,15 +129,10 @@ body{
 </div>
 
 <script>
-var links=[
-  {name:'Telegram',url:'https://telegram.me/bawijewellery'},
-  {name:'Instagram',url:'https://www.instagram.com/bawi.jewellery'}
-];
-var linktreeUrl='https://linktr.ee/bawijewellery';
-QRCode.toCanvas(document.createElement('canvas'),links[0].url,{
+QRCode.toCanvas(document.createElement('canvas'),'https://pvsstr.github.io/bawi-links/',{
   width:140,
   margin:1,
-  color:{dark:'#1a1a2e',light:'#ffffff'}
+  color:{dark:'#1A1A2E',light:'#ffffff'}
 },function(error,canvas){
   if(error)return console.error(error);
   document.getElementById('qr-canvas').appendChild(canvas);
